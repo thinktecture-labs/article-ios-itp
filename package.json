@@ -1,0 +1,29 @@
+{
+  "name": "article-ios-itp",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node src/server.js",
+    "prepare": "ncp src/index.html src/cordova/www/index.html && (cd src/cordova && cordova prepare)",
+    "postinstall": "cd src/cordova && npm i",
+    "certs": "cd src/certs && mkcert 127.0.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinktecture-labs/article-ios-itp.git"
+  },
+  "author": "Thinktecture AG, Thomas Hilzendegen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinktecture-labs/article-ios-itp/issues"
+  },
+  "homepage": "https://github.com/thinktecture-labs/article-ios-itp#readme",
+  "devDependencies": {
+    "cookie-parser": "~1.4.5",
+    "cordova": "~10.0.0",
+    "express": "~4.17.1",
+    "http-server": "~0.12.3",
+    "https": "~1.0.0",
+    "ncp": "~2.0.0"
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iOS ITP Scenarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0 20px;
+        }
+
+        p {
+            margin: 10px 0 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: rgb(255, 88, 79);
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<p id="location"></p>
+
+<iframe id="frame" src="about:blank"></iframe>
+
+<button onclick="addCookies()">Add Cookies</button>
+<button onclick="showCookies()">Show Cookies</button>
+<button onclick="removeCookies()">Remove Cookies</button>
+<button onclick="startFlow()">Start Flow</button>
+</body>
+
+<script type="text/javascript">
+    const host = '127.0.0.1';
+
+    window.addCookies = function () {
+        document.getElementById('frame').src = 'https://' + host + '/set';
+    }
+
+    window.removeCookies = function () {
+        document.getElementById('frame').src = 'https://' + host + '/remove';
+    }
+
+    window.showCookies = function () {
+        document.getElementById('frame').src = 'https://' + host + '/';
+    }
+
+    window.startFlow = function () {
+        location.href = 'https://' + host + '/flow?returnUrl=' + encodeURIComponent(location.href);
+    }
+
+    document.getElementById('location').innerText = location.href;
+</script>
+</html>
